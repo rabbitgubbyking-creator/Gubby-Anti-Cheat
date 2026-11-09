@@ -21,11 +21,9 @@ These are default durations for a first substantiated violation. Repeated or esp
 
 Durations are defaults, not a substitute for reviewing context. A warning or shorter action may be appropriate for a minor first-time incident. Repeated violations can escalate. Severe conduct can justify a longer restriction, but the reason and evidence must be recorded.
 
-## Discord community membership
+## Access without Discord membership
 
-The Gubby Anti-Cheat community invite is https://discord.gg/GBgmps6X6. Joining the Discord server is intended to be a requirement for activating the anti-cheat lobby service.
-
-Membership must be verified securely by a future Discord OAuth2/bot integration before issuing an anti-cheat service session. A pasted username, screenshot, or invite click is not proof of membership. Link the Discord account to the game's pseudonymous player ID using an explicit consent flow; do not expose bot tokens or OAuth secrets in the Android app or repository. If membership cannot be verified, explain that the player must join the community and complete account linking. This Discord requirement is not implemented in the current prototype.
+Anyone may install and use the Gubby Anti-Cheat mod APK without joining the Discord server. Discord membership is not an access requirement, and the app must not request Discord account linking just to activate the anti-cheat service.
 
 ## Restriction behavior: disable the service, do not kick
 
