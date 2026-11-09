@@ -23,7 +23,9 @@ A defensive anti-cheat and community-safety project for compatible, community-ru
 
 ## Planned features
 
-See [Planned In-Game Settings and Lobby Features](docs/PLANNED_FEATURES.md) for proposed dark chat mode, frame-rate and graphics settings, automatic chat translation, host-configurable minimum account level, and other ideas. These are plans only, not implemented features.
+See [Planned In-Game Settings and Lobby Features](docs/PLANNED_FEATURES.md) for proposed dark chat mode, frame-rate and graphics settings, automatic chat translation, host-configurable minimum account level, AFK message-before-observer mode, saved presets, lobby filters, reconnect support, and other ideas. These are plans only, not implemented features.
+
+See [Community Requests](docs/COMMUNITY_REQUESTS.md) for a dated summary of player suggestions, and [Android Build Status](docs/ANDROID_BUILD_STATUS.md) for the current APK prerequisites and exact build status.
 
 ## Anti-false-positive policy
 
