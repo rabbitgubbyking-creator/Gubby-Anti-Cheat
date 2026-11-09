@@ -2,6 +2,10 @@
 
 A defensive anti-cheat and community-safety project for compatible, community-run Among Us modded lobbies.
 
+## Game ownership and credit
+
+Among Us and its original Android APK, game code, names, and assets belong to **Innersloth**. Gubby Anti-Cheat does not claim ownership of Among Us. This project is independently made and focuses on anti-cheat mods and supporting tools. We do not present the original Among Us APK as our own or redistribute the original game files. Players must obtain Among Us from an official source themselves. Innersloth is not affiliated with or endorsing this project.
+
 ## Current scope
 
 - No host-controlled global bans.
