@@ -114,9 +114,29 @@ class Handler(BaseHTTPRequestHandler):
                     (player_key(supplied_id),),
                 ).fetchone()
             if row and (row["expires_at"] is None or row["expires_at"] > now):
-                self.send_json(200, {"status": "confirmed_shared_ban", "reason": row["reason_code"], "evidence_ref": row["evidence_ref"]})
+                reason = row["reason_code"]
+                expires_at = row["expires_at"]
+                if expires_at is None:
+                    remaining = "permanent"
+                else:
+                    seconds_left = max(0, expires_at - now)
+                    days_left = (seconds_left + 86_399) // 86_400
+                    remaining = f"{days_left} day(s) remaining"
+                self.send_json(200, {
+                    "status": "service_access_suspended",
+                    "service_access": "denied",
+                    "reason": reason,
+                    "expires_at": expires_at,
+                    "remaining": remaining,
+                    "chat_notice": f"Gubby Anti-Cheat access is suspended. Reason: {reason}. Duration: {remaining}.",
+                    "game_kick": False
+                })
             else:
-                self.send_json(200, {"status": "not_banned"})
+                self.send_json(200, {
+                    "status": "not_banned",
+                    "service_access": "allowed",
+                    "game_kick": False
+                })
             return
         self.send_json(404, {"error": "not_found"})
 
