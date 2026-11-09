@@ -48,3 +48,12 @@ Use generated opaque IDs, not usernames, email addresses, phone numbers, or hard
 - Reports are stored as pending and do not trigger bans.
 - The status route only reflects ban records created through a future reviewed administrative process. No ban-management route is included.
 - SQLite is for local development only. A deployed service needs managed storage, HTTPS, secret rotation, backups, monitoring, and a documented appeal process.
+
+
+## Planned Discord membership and restriction behavior
+
+- Community invite: https://discord.gg/GBgmps6X6
+- Discord membership is a planned prerequisite for activating the anti-cheat lobby service. The prototype does not yet verify Discord membership or link Discord accounts.
+- A future secure OAuth2/bot integration must verify guild membership server-side. Never place a Discord bot token or OAuth client secret in the Android app or a public repository.
+- A confirmed restriction should suspend Gubby Anti-Cheat service access only. It must not kick or disconnect the player from their own Among Us lobby or disable ordinary game features.
+- The status response reports the policy reason, expiry, remaining time, and a safe chat notice. A compatible lobby adapter still needs to display that notice and privately notify the host; that adapter is not implemented yet.
