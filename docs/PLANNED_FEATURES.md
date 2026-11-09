@@ -35,6 +35,25 @@ Among Us is not a conventional video player, so 480p/720p/1080p labels may not m
 
 ## Host lobby settings
 
+### Lobby rules editor
+- Let the host create and publish a rules card before players join.
+- Include editable rules such as respectful chat, no spam, language expectations, minimum account level, AFK behavior, and whether chat translation is enabled.
+- Show the rules to players before joining and keep a viewable copy inside the lobby.
+- Require the host to confirm changes; show an updated notice when rules change during a session.
+- Keep rules within the game's and platform's policies. Do not let hosts add discriminatory or abusive rules.
+- A rules card explains expectations; it does not itself prove a violation or automatically create a global ban.
+
+### AFK ghost / observer mode
+- Let a player manually enable AFK mode, and optionally let the host configure an inactivity timeout before the game offers AFK mode.
+- When AFK mode starts, move the player out of active gameplay into a neutral, non-interactive observer state with no visible player body.
+- Clearly mark the player as **AFK / Observer** in the lobby or player list, and announce the state change so nobody mistakes the disappearance for a kill.
+- AFK mode must not create a corpse, trigger a kill report, count as a death, or make another player appear responsible.
+- While AFK, the player cannot move, complete tasks, sabotage, kill, call meetings, vote, or affect round outcomes.
+- When the player returns, let them rejoin only at a safe game-state boundary chosen by the host/mod rules; do not silently restore them mid-action.
+- The host can enable or disable AFK mode and set the inactivity timeout, but cannot use it to secretly remove or impersonate a player.
+- If the game integration cannot support a reliable observer state, use a clearly labelled AFK lobby state instead of pretending the player died.
+
+
 ### Minimum account-level requirement
 - In a compatible private/community lobby, let the host optionally set a minimum Among Us account level.
 - If enabled, players below the selected threshold can be automatically removed from that lobby with a clear notice explaining the host's minimum-level rule.
@@ -47,11 +66,11 @@ Among Us is not a conventional video player, so 480p/720p/1080p labels may not m
 ## Additional useful ideas
 
 1. **Reconnect grace period:** allow a disconnected player a short window to rejoin their previous seat.
-2. **Lobby rules card:** show the host's selected rules, minimum level, language, and moderation settings before players join.
+2. **Lobby rules editor and card:** let hosts publish clear rules and show them before players join and inside the lobby.
 3. **Chat controls:** player mute, report, and block controls with clear local-versus-shared effects.
 4. **Translation language indicator:** show each player's selected language and whether a message is original or translated.
 5. **Performance preset:** one Auto option that selects conservative graphics and frame-rate settings based on supported device capabilities.
-6. **Appeal/status screen:** let a player see whether a GAC service restriction is temporary or permanent, its reason, expiry, and the appeal route without exposing private reporter details.
+6. **Appeal/status screen:** let a player see whether a GAC service restriction is temporary or permanent, its reason, expiry, and the appeal route without exposing private reporter details.\n7. **AFK observer mode:** safely pause an inactive player without creating a fake death or misleading kill report.
 
 ## Implementation order
 
@@ -59,7 +78,7 @@ Among Us is not a conventional video player, so 480p/720p/1080p labels may not m
 2. Supported frame-rate caps and safe graphics presets, after confirming the game engine exposes those controls.
 3. Translation prototype with original-text fallback and privacy disclosure.
 4. Host-configurable minimum-level rule, only after a reliable level source and lobby-only kick API are available.
-5. Reconnect and lobby-rules improvements.
+5. Lobby rules editor and AFK observer mode, after validating safe game-state transitions.\n6. Reconnect improvements.
 
 ## Compatibility and safety limits
 
