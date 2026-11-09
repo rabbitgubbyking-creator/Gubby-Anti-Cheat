@@ -43,16 +43,17 @@ Among Us is not a conventional video player, so 480p/720p/1080p labels may not m
 - Keep rules within the game's and platform's policies. Do not let hosts add discriminatory or abusive rules.
 - A rules card explains expectations; it does not itself prove a violation or automatically create a global ban.
 
-### AFK ghost / observer mode
-- Let a player manually enable AFK mode, and optionally let the host configure an inactivity timeout before the game offers AFK mode.
-- When AFK mode starts, move the player out of active gameplay into a neutral, non-interactive observer state with no visible player body.
-- Clearly mark the player as **AFK / Observer** in the lobby or player list, and announce the state change so nobody mistakes the disappearance for a kill.
+### AFK message then ghost / observer mode
+- Let a player manually enable AFK mode. The host may also configure an inactivity timeout that offers or starts AFK mode according to the lobby's clearly displayed rules.
+- Before changing the player's state, automatically send a system chat notice such as: **"[Player] is now AFK and entering Ghost / Observer mode."**
+- Change the player to AFK / Observer only after the notice has been successfully sent and acknowledged by the game integration. If sending fails, keep the player in the current safe state and retry or show a clear error; never silently make them disappear.
+- After the notice, move the player out of active gameplay into a neutral, non-interactive observer state with no visible player body.
+- Clearly mark the player as **AFK / Observer** in the player list or lobby UI. The automatic message and visible status should make clear that this is an AFK transition, not a kill or death.
 - AFK mode must not create a corpse, trigger a kill report, count as a death, or make another player appear responsible.
 - While AFK, the player cannot move, complete tasks, sabotage, kill, call meetings, vote, or affect round outcomes.
-- When the player returns, let them rejoin only at a safe game-state boundary chosen by the host/mod rules; do not silently restore them mid-action.
+- When the player returns, let them rejoin only at a safe game-state boundary chosen by the host/mod rules; send a return notice such as **"[Player] is back from AFK."**
 - The host can enable or disable AFK mode and set the inactivity timeout, but cannot use it to secretly remove or impersonate a player.
-- If the game integration cannot support a reliable observer state, use a clearly labelled AFK lobby state instead of pretending the player died.
-
+- If the game integration cannot reliably send the notice and transition to an observer state in the correct order, use a clearly labelled AFK lobby state instead of pretending the player died.
 
 ### Minimum account-level requirement
 - In a compatible private/community lobby, let the host optionally set a minimum Among Us account level.
@@ -70,7 +71,8 @@ Among Us is not a conventional video player, so 480p/720p/1080p labels may not m
 3. **Chat controls:** player mute, report, and block controls with clear local-versus-shared effects.
 4. **Translation language indicator:** show each player's selected language and whether a message is original or translated.
 5. **Performance preset:** one Auto option that selects conservative graphics and frame-rate settings based on supported device capabilities.
-6. **Appeal/status screen:** let a player see whether a GAC service restriction is temporary or permanent, its reason, expiry, and the appeal route without exposing private reporter details.\n7. **AFK observer mode:** safely pause an inactive player without creating a fake death or misleading kill report.
+6. **Appeal/status screen:** let a player see whether a GAC service restriction is temporary or permanent, its reason, expiry, and the appeal route without exposing private reporter details.
+7. **AFK message then observer mode:** automatically announce the AFK transition before hiding the player's body and disabling gameplay actions.
 
 ## Implementation order
 
@@ -78,7 +80,8 @@ Among Us is not a conventional video player, so 480p/720p/1080p labels may not m
 2. Supported frame-rate caps and safe graphics presets, after confirming the game engine exposes those controls.
 3. Translation prototype with original-text fallback and privacy disclosure.
 4. Host-configurable minimum-level rule, only after a reliable level source and lobby-only kick API are available.
-5. Lobby rules editor and AFK observer mode, after validating safe game-state transitions.\n6. Reconnect improvements.
+5. Lobby rules editor and AFK message-then-observer flow, after validating message delivery and safe game-state transitions.
+6. Reconnect improvements.
 
 ## Compatibility and safety limits
 
