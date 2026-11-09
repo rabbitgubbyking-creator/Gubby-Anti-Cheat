@@ -21,6 +21,10 @@ A defensive anti-cheat and community-safety project for compatible, community-ru
 6. **Service activation check** asks the service whether a player is restricted before enabling Gubby Anti-Cheat features; it does not block ordinary game or lobby access.
 7. **Android companion app** displays match logs, report status, explanations, and ban status. It does not need to patch the official game.
 
+## Planned features
+
+See [Planned In-Game Settings and Lobby Features](docs/PLANNED_FEATURES.md) for proposed dark chat mode, frame-rate and graphics settings, automatic chat translation, host-configurable minimum account level, and other ideas. These are plans only, not implemented features.
+
 ## Anti-false-positive policy
 
 - A client-side suspicion alone is never enough for a permanent gameplay-cheat ban.
