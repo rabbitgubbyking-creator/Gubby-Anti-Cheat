@@ -18,7 +18,7 @@ A defensive anti-cheat and community-safety project for compatible, community-ru
 3. **Safety report flow** accepts reports about harmful conduct, with privacy safeguards and human review for serious cases.
 4. **Evidence record** stores the rule triggered, event sequence or evidence reference, build/version, and confidence.
 5. **Ban service** makes shared decisions. Lobby hosts cannot create or remove global restrictions.
-6. **Lobby admission check** asks the service whether a player is restricted before allowing entry.
+6. **Service activation check** asks the service whether a player is restricted before enabling Gubby Anti-Cheat features; it does not block ordinary game or lobby access.
 7. **Android companion app** displays match logs, report status, explanations, and ban status. It does not need to patch the official game.
 
 ## Anti-false-positive policy
