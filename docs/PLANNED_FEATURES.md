@@ -55,6 +55,17 @@ Among Us is not a conventional video player, so 480p/720p/1080p labels may not m
 - The host can enable or disable AFK mode and set the inactivity timeout, but cannot use it to secretly remove or impersonate a player.
 - If the game integration cannot reliably send the notice and transition to an observer state in the correct order, use a clearly labelled AFK lobby state instead of pretending the player died.
 
+
+
+### Community-requested quality-of-life features
+- **Saved lobby presets:** let hosts save named setting sets (for example Classic or Hide-and-Seek) and reapply them before a match. Always show the settings that will change before applying.
+- **Lobby filters:** let players filter the lobby browser by supported settings such as map, player count, role configuration, and vision values. Filters should describe the lobby accurately rather than guarantee player skill.
+- **Player level display and optional level requirement:** show a verified account level where the game API makes it available. Hosts may set a visible minimum level for their own compatible lobby, with an option to allow unknown levels. Level is only a rough experience signal, not proof of skill or trustworthiness.
+- **Reconnect grace period:** preserve a disconnected player's seat briefly and allow them to rejoin when the game supports safe reconnection.
+- **Ready check:** after a lobby has waited for a configurable period, let players mark themselves ready and notify the host. The host still controls when the match starts.
+- **Mobile performance diagnostics:** offer an optional lightweight status panel for FPS, ping, and connection state, plus conservative graphics presets. Do not promise that a mod can fix server or device performance problems.
+- **Lobby title and notes:** allow a host to set a short, policy-compliant lobby title and description that players can inspect before joining. Filter abusive or deceptive text.
+
 ### Minimum account-level requirement
 - In a compatible private/community lobby, let the host optionally set a minimum Among Us account level.
 - If enabled, players below the selected threshold can be automatically removed from that lobby with a clear notice explaining the host's minimum-level rule.
